@@ -8,6 +8,10 @@ Aplicativo mobile para acompanhar o consumo diario de agua e o progresso em rela
 
 O aplicativo sera usado para registrar a quantidade de agua consumida ao longo do dia, visualizar o progresso em tempo real e facilitar o acompanhamento de uma meta diaria.
 
+## Repositorio
+
+[github.com/migueldinois/diario-hidratacao](https://github.com/migueldinois/diario-hidratacao)
+
 ## Requisitos planejados
 
 - Exibir a meta diaria de hidratacao no topo da tela.
@@ -38,7 +42,7 @@ Para executar no Android, e necessario ter um dispositivo conectado ou um emulad
 1. Clone o repositorio e entre na pasta do projeto:
 
    ```bash
-   git clone <url-do-repositorio>
+   git clone https://github.com/migueldinois/diario-hidratacao.git
    cd diario-hidratacao
    ```
 
@@ -75,10 +79,10 @@ Depois de iniciar o Expo, use o QR code exibido no terminal ou no navegador para
 ├── app.json                        # Configuracao do Expo
 ├── package.json                    # Dependencias e scripts
 └── src/
-   ├── components/
-   │   ├── ActionsButtons.jsx      # Componente para acoes de registro
-   │   ├── Header.jsx              # Componente do cabecalho
-   │   └── WaterProgress.jsx       # Componente do progresso de hidratacao
+      ├── components/
+      │   ├── ActionsButtons.jsx      # Componente para acoes de registro
+      │   ├── Header.jsx              # Componente do cabecalho
+      │   └── WaterProgress.jsx       # Componente do progresso de hidratacao
     └── constants/
         └── colors.js               # Cores compartilhadas
 ```
