@@ -1,12 +1,20 @@
-import { StyleSheet, Text, View, Button } from 'react-native';
-export function ActionButtons({onAddWater, onReset}){
+import { StyleSheet, Text, View, Pressable } from 'react-native';
+export function ActionButtons({ onAddWater, onReset }) {
     return (
         <View>
             <Text>Adicionar consumo:</Text>
-            <Button title="+200 ml" onPress={() => onAddWater(200)} />
-            <Button title="+350 ml" onPress={() => onAddWater(350)} />
-            <Button title="+500 ml" onPress={() => onAddWater(500)} />
-            <Button title="🔄 Reiniciar Dia" onPress={onReset}></Button>
+            <Pressable onPress={() => onAddWater(200)}>
+                <Text>+200 ml</Text>
+            </Pressable>
+            <Pressable onPress={() => onAddWater(350)}>
+                <Text>+350 ml</Text>
+            </Pressable>
+            <Pressable onPress={() => onAddWater(500)}>
+                <Text>+500 ml</Text>
+            </Pressable>
+            <Pressable onPress={onReset}>
+                <Text>🔄 Reiniciar Dia</Text>
+            </Pressable>
         </View>
     )
 }
