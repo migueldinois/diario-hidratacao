@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { useState } from 'react';
 import { COLORS } from './src/constants/colors';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import Header from './src/components/Header';
 import { WaterProgress } from './src/components/WaterProgress';
 import { ActionButtons } from './src/components/ActionsButtons';
@@ -21,12 +21,14 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <View style={styles.container}>
-        <Header META={META} />
-        <WaterProgress consumo={consumo} META={META} />
-        <ActionButtons onAddWater={handleAddWater} onReset={handleReset}/>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }}>
         <StatusBar style="auto" />
-      </View>
+        <View style={styles.container}>
+          <Header META={META} />
+          <WaterProgress consumo={consumo} META={META} />
+          <ActionButtons onAddWater={handleAddWater} onReset={handleReset} />
+        </View>
+      </SafeAreaView>
     </SafeAreaProvider>
   );
 }
@@ -36,7 +38,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffffff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   text: {
     color: 'white',
