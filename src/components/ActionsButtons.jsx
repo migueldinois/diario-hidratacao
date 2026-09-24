@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import COLORS from '../constants/colors';
 
-export function ActionButtons({ onAddWater, onReset }) {
+
+export function ActionButtons({ onAddWater, onReset, onChangeGoal }) {
+
+
+
     return (
         <View style={styles.containerActionButtons}>
             <View style={styles.viewAdicionarConsumo}>
@@ -20,20 +24,36 @@ export function ActionButtons({ onAddWater, onReset }) {
                     </Pressable>
                 </View>
 
+                <View style={styles.viewAlterarMeta}>
+                    <Pressable style={styles.botaoAlterarMeta} onPress={onChangeGoal}>
+                        <Text style={styles.textBotaoAlterarMeta}>💧 Alterar Meta</Text>
+                    </Pressable>
+                </View>
                 <View style={styles.viewReset}>
                     <Pressable style={styles.botaoReset} onPress={onReset}>
                         <Text style={styles.textBotaoReset}>🔄 Reiniciar Dia</Text>
                     </Pressable>
                 </View>
+
             </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    containerActionButtons:{
+    botaoAlterarMeta: {
+        padding: 10,
+        backgroundColor: COLORS.secondary,
+        borderRadius: 10,
+        marginTop: 10,
+    },
+    textBotaoAlterarMeta: {
+        color: COLORS.white,
+        textAlign: 'center',
+    },
+    containerActionButtons: {
         justifyContent: 'center',
-        
+
         padding: 20,
     },
     viewAdicionarConsumo: {
@@ -52,7 +72,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginRight: 10,
         width: 100,
-        
+
 
     },
     textBotaoAddWater: {
@@ -68,6 +88,7 @@ const styles = StyleSheet.create({
         borderColor: COLORS.danger,
         marginTop: 10,
     },
+
     textBotaoReset: {
         color: COLORS.danger,
         textAlign: 'center',

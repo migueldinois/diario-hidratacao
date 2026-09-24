@@ -2,17 +2,22 @@ import { StyleSheet, Text, View } from 'react-native';
 import COLORS from '../constants/colors';
 
 
-export function WaterProgress({META, consumo}) {
+export function WaterProgress({ META, consumo }) {
+
+
+
     const porcentagemProgresso = (consumo / META) * 100;
-    
+
 
     return (
         <View style={styles.containerWaterProgress}>
             <Text style={styles.consumoText}>{consumo} ml</Text>
-            <Text style={styles.porcentagemText}>{porcentagemProgresso.toFixed(2)}% da meta atingida</Text>
+            {/*  usando math min e sedo porcentagem inteira, nao quero nenhum numero decimal */}
+            <Text style={styles.porcentagemText}>{Math.min(porcentagemProgresso, 100).toFixed(0)}% da meta atingida</Text>
             {/* Barra de progresso */}
             <View style={styles.progressBar}>
-                <View style={[styles.progress, { width: `${Math.min(porcentagemProgresso, 100)}%` }]} />
+                {/* math.min serve para limitar a porcentagem entre 0 e 100 */}
+                <View style={[styles.progress, { width: `${Math.min(porcentagemProgresso, 100).toFixed(0)}%` }]} />
             </View>
         </View>)
 }
@@ -51,7 +56,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10,
         color: COLORS.primary,
-        
+
     },
     porcentagemText: {
         fontSize: 12,
@@ -59,3 +64,4 @@ const styles = StyleSheet.create({
         color: COLORS.textMuted,
     }
 });
+
