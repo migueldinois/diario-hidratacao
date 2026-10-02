@@ -7,6 +7,8 @@ import { WaterProgress } from './src/components/WaterProgress';
 import { ActionButtons } from './src/components/ActionsButtons';
 import { MetaProvider, useMeta } from './src/context/MetaContext';
 import { MetaDialog } from './src/components/MetaDialog';
+import HealthTip from './src/components/HealthTip';
+import AlertInfo from './src/components/AlertsInfo';
 
 // Precisamos criar uma funcao sem ser a padrao pois devemos empacotar tudo depois na funcao app
 function ConteudoApp() {
@@ -28,11 +30,13 @@ function ConteudoApp() {
       <View style={styles.container}>
         <Header META={meta} />
         <WaterProgress consumo={consumo} META={meta} />
+        <AlertInfo consumo={consumo} meta={meta} />
         <ActionButtons 
           onAddWater={handleAddWater} 
           onReset={handleReset} 
           onChangeGoal={() => setDialogVisivel(true)} 
         />
+        <HealthTip />
         <MetaDialog
           visivel={dialogVisivel}
           onFechar={() => setDialogVisivel(false)}
